@@ -11,13 +11,15 @@ import { AlertType } from './alert-type.enum';
 export class AlertComponent {
 
   constructor(alertConfiguration: AlertConfiguration) {
+    this.dismissable = alertConfiguration.dismissable;
+    this.type = alertConfiguration.type;
   }
 
   @Input()
-  type: AlertType| string = AlertType.INFO;
+  type: AlertType| string;
 
   @Input()
-  dismissable: boolean = true;
+  dismissable: boolean;
 
   @Output()
   closed = new EventEmitter();

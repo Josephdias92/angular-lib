@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AlertDemoRoutingModule } from './alert-demo-routing.module';
 import { AlertDemoComponent } from './alert-demo.component';
 import { AlertModule } from 'projects/components/src/public-api';
+import { AlertConfiguration } from 'projects/components/src/lib/alert/alert-configuration.service';
 
 
 @NgModule({
@@ -13,7 +14,11 @@ import { AlertModule } from 'projects/components/src/public-api';
   imports: [
     CommonModule,
     AlertDemoRoutingModule,
-    AlertModule
-  ]
+    AlertModule,
+  ],
+  providers: [{
+    provide: AlertConfiguration,
+    useValue: {type: 'danger', dismissable: true}
+  }]
 })
 export class AlertDemoModule { }
